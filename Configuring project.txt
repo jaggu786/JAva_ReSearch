@@ -1,0 +1,8 @@
+1. open sql server
+2. create a user account with 
+	user name= sqlclass
+	password = sql
+	server roles=sysadmin
+3. restore the database with database name as 'UAdmin'
+4. choose the backup file from uadmin-->data subfolder
+5. run the project executable located at "UAdmin-->Package-->Support" path

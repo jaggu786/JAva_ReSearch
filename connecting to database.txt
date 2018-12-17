@@ -1,0 +1,44 @@
+Connecting to a Database
+In order to connect to the database from an application we can use two ways. They are:
+•	Using ODBC
+•	Using OLEDB
+ODBC:
+	It stands for Open Database Connectivity. It is a low-level programming language. It consists of a set of drivers which can be used to connect to any database. To use the ODBC driver for connectivity, we need to create a DSN (Data Source Name). In the coding part of the application we will use this DSN name.
+Creating a DSN
+1.	Open control panel from start menu.
+2.	Double click on Administrative Tools.
+3.	Double click on Data Sources (ODBC).
+4.	In the window displayed click on ADD button.
+5.	Select the Driver corresponding to the database and follow the steps.
+Note: 
+The main drawback of this DSN is it is machine dependent. That means the system which contains the application must also contain this DSN. Then only we can run the project successfully.
+
+OLEDB:
+	It stands for Object Linking and Embedding DataBases. This technology was developed by Microsoft Organization. So, we can use this only on windows platform. This technology contains different providers to connect to different databases. We provide that provider name in the application coding. 
+	The main advantage of this technique is we no need to create any separate component like DSN in case of ODBC. Once we specify provider in the coding of the application then we can use the executable of the application on any no. Of computers and run them directly.
+	The following are the providers for different databases.
+1.	MSDAORA	- oracle
+2.	SQLOLEDB	- SQL Server
+3.	Microsoft.Jet.OLEDB.4.0 – MS Access
+
+Programming:
+	While writing the code from the application to connect to the database, we require the following objects.
+
+Connection: Used to provide connection details such as what connectivity type we are using, to which server we are connecting, what database we are using, user name and password etc.,
+
+Command: Used to execute insert, delete and update commands on the connected server.
+
+Recordset: Used to execute a select command on the connected database. This recordset is nothing but a pointer to the output of the select command. Using different methods of this object we can control the output.
+
+Sample Code:
+X=  <script will be generated automatically>
+Set con=createobject("ADODB.connection")
+set rs=createobject("ADODB.recordset")
+Con.open “Provider=sqloledb;server=(local);database=UAdmin;uid=sqlclass;pwd=sql”
+Rs.open “select * from application where appno=(select max(appno) from application”,con
+If x=rs(1) then
+	Msgbox “OK”
+Else
+	Msgbox “BUG”
+End if 
+
